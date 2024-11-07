@@ -14,7 +14,7 @@ delete SUM_DTRC_DKRC_ethane.csv ;
 
 %% 'Constants'
 kb = 8.617333262e-5 ; % 'Boltzmanns constant'
-h=4.135667696e-15 ; % 'Plancks constant'
+h = 4.135667696e-15 ; % 'Plancks constant'
 
 % 'Operating conditions'
 T = 573.15 ;
