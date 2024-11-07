@@ -1,0 +1,32 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -C gpu
+#SBATCH -G 4
+#SBATCH -q regular
+#SBATCH -J RC_13_01
+#SBATCH -t 12:00:00
+#SBATCH --output matlab.out
+#SBATCH --error matlab.err
+#SBATCH -A m1065_g
+
+module purge
+
+module load matlab/R2021b
+
+cat << jide
+
+ $(date)
+
+ ${SLURM_JOB_NAME}
+
+ ${SLURM_JOB_ID}
+
+ $(hostname)
+
+ ${SLURM_JOB_NODELIST}
+
+jide
+
+#run the application:
+#applications may perform better with --gpu-bind=none instead of --gpu-bind=single:1 
+srun -n 4 -c 32 --cpu_bind=cores -G 4 --gres=gpu:4  matlab -nodisplay < C2_Pt_111_main_script.m -logfile log
