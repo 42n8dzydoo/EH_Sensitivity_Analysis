@@ -3,7 +3,7 @@ function F = C2_Pt_111_ODE_function(t, y, x, T, Ptot, G_ts_111, G_ads_111, EZPEc
 format long
 
 kb = 8.617333262e-5 ; % 'Boltzmanns constant'
-h=4.135667696e-15 ; % 'Plancks constant'
+h = 4.135667696e-15 ; % 'Plancks constant'
 
 dG_act_111 = zeros(length(G_ts_111), 1) ;
 dG_rxn_111 = zeros(length(G_ts_111), 1) ;
