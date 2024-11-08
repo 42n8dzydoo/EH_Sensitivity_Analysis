@@ -19,11 +19,11 @@ h = 4.135667696e-15 ; % 'Plancks constant'
 % 'Operating conditions'
 T = 573.15 ;
 
-%% file names
+%% 'file names'
 species_file = 'species_ads_111.csv' ;
 ts_file = 'ts_energy_111.xlsx' ;
 
-%% Read Adsorption energies
+%% 'Read Adsorption energies'
 G_ads_111_raw = readtable(species_file,'ReadRowNames',true) ;
 G_ts_111_raw = readtable(ts_file,'Sheet','ts_energy_111','ReadRowNames',true) ;
 G_ads_act_111_raw = readtable(ts_file,'Sheet','ads_act','ReadRowNames',true) ;
@@ -47,14 +47,12 @@ time_read = readmatrix('time_steps.csv') ;
 %% 'Add activation energy of adsorption-desorption steps computed from collision theory to G_ts_111'
 G_ts_111(27:31) = G_ads_act_111 ;
 
-
 DTRC_methane = zeros(length(G_ads_111), length(time_read)) ;
 DTRC_ethane = zeros(length(G_ads_111), length(time_read)) ;
 DKRC_methane = zeros(length(G_ts_111), length(time_read)) ;
 DKRC_ethane = zeros(length(G_ts_111), length(time_read)) ;
 
 energy_perturb = 1e-4 ; % 'set delta G here'
-
 
 %% 'DTRC loop'
 for il = 1:length(G_ads_111)
@@ -193,7 +191,7 @@ for il = 1:length(G_ads_111)
         M=eye(length(y0)) ;
         M(length(y0),length(y0)) = 0 ; % 'implicit ODE form for the free site balance'
         
-        %%
+        %% 'Solver options'
         optode = odeset('NonNegative',1:17,'Mass',M,'Abstol',1E-15,'RelTol',1E-15) ;
         optlsq = optimset('TolFun',1E-13,'TolX',1E-13) ;        
         
@@ -382,7 +380,7 @@ for il = 1:length(G_ts_111)
         M=eye(length(y0)) ;
         M(length(y0),length(y0)) = 0 ; % 'implicit ODE form for the free site balance'
         
-        %%
+        %% 'Solver options'
         optode = odeset('NonNegative',1:17,'Mass',M,'Abstol',1E-15,'RelTol',1E-15) ;
         optlsq = optimset('TolFun',1E-13,'TolX',1E-13) ;        
         
