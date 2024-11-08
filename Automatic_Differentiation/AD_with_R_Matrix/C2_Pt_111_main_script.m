@@ -301,7 +301,7 @@ optode = odeset(optode1,'Abstol',1E-10,'RelTol',1E-10) ;
 optlsq = optimset('TolFun',1E-13,'TolX',1E-13) ;      
 
 %% 'Solve the composite DAE'
-[t,y]=ode15s(@(t,y)C2_Pt_111_ODE_function(t, y, x, T, Ptot, G_ts_111, G_ads_111, EZPEc_gas_111, lnQ_gas_111),[0, run_time], y0, optode);
+[t,y]=ode15s(@(t,y)C2_Pt_111_Composite_ODE_function(t, y, x, T, Ptot, G_ts_111, G_ads_111, EZPEc_gas_111, lnQ_gas_111),[0, run_time], y0, optode);
 
 % 'Final coverages, theta'
 coverages(:) = y(end,1:17);
