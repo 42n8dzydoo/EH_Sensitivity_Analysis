@@ -1,4 +1,4 @@
-function G = C2_Pt_111_ODE_function(t, y, x, T, Ptot, G_ts_111, G_ads_111, EZPEc_gas_111, lnQ_gas_111)
+function G = C2_Pt_111_Composite_ODE_function(t, y, x, T, Ptot, G_ts_111, G_ads_111, EZPEc_gas_111, lnQ_gas_111)
 format long
 
 kb = 8.617333262e-5; % 'Boltzmanns constant'
