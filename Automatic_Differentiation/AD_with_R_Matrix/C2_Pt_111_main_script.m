@@ -231,14 +231,14 @@ end
 prod_idx = [1, 5, 8, 11, 16] ;
 for i = 1:length(prod_idx)
     if i == length(prod_idx)
-		% 'Dissociative adsorption of H2 to 2H(*)'
+	% "Dissociative adsorption of H2 to 2H(*)"
         dG_act_111(26 + i) = G_ts_111(26 + i) + G_ads_111(17) - 2 * G_ads_111(17) ;
         dl_dG_act_111(26 + i) = dl_G_ts_111(26 + i) + dl_G_ads_111(17) - 2 * dl_G_ads_111(17) ;
 
         dG_rxn_111(26 + i) = 2 * G_ads_111(prod_idx(i)) - (EZPEc_gas_111(i) - kb * T * lnQ_gas_111(i)) - 2 * G_ads_111(17) ;
         dl_dG_rxn_111(26 + i) = 2 * dl_G_ads_111(prod_idx(i)) - (dl_EZPEc_gas_111(i) - kb * T * dl_lnQ_gas_111(i)) - 2 * dl_G_ads_111(17) ;
     else
-		% 'Other gas phase'
+	% 'Other gas phase'
         dG_act_111(26 + i) = G_ts_111(26 + i) - G_ads_111(17) ;
         dl_dG_act_111(26 + i) = dl_G_ts_111(26 + i) - dl_G_ads_111(17) ;
 
@@ -256,8 +256,8 @@ for i = 1:length(prod_idx)
     dl_kb_111(26 + i) = dl_kf_111(26 + i) / dl_Keq_111(26 + i) ;
 end
 
-H2_pressure = 0.1317225 ; % '0.13 atm to bar'
-Ethane_pressure = 0.03343725 ; % '0.033 atm to bar'
+H2_pressure = 0.1317225 ; % "0.13 atm to bar"
+Ethane_pressure = 0.03343725 ; % "0.033 atm to bar"
 coverages = zeros(length(G_ads_111), 1) ;
 rate_combined = zeros(length(G_ts_111), 1) ;
 
@@ -401,7 +401,7 @@ set(l,'Edgecolor',[1 1 1]);
 y_raw = y(end,:);
 y = reshape(y_raw, [length(y_raw), 1]) ;
 
-y ;
+%% 'Final total pressure'
 Ptot_f = PCH3CH3_f + PCH2CH2_f + PCHCH_f + PCH4_f + PH2_f ;
 
 %% 'Regular MKM'
