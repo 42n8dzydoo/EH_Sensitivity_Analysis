@@ -328,7 +328,7 @@ Sum_DTRC_DKRC_M = zeros(1, length(t)) ;
 
 %% 'Rates of ethane consumption and methane production'
 r111_27_plot = zeros(length(t),1) ; % 'ethane consumption'
-methane_TOF_plot = zeros(length(t),1) ;
+methane_TOF_plot = zeros(length(t),1) ; % 'methane production'
 
 %% 'Compute methane production and ethane consumption rates for every instance'
 for jk = 1:length(t)
