@@ -77,7 +77,7 @@ for il = 1:length(G_ads_111)
         kb_111 = zeros(length(G_ts_111), 1) ;
         
         %% 'Get the Reaction energies and Activation Energies'
-        
+	
         % '111 Activation energies of TS steps'
         dG_act_111(1) = G_ts_111(1) + G_ads_111(17) - G_ads_111(1) - G_ads_111(17) ;
         dG_act_111(2) = G_ts_111(2) + G_ads_111(17) - G_ads_111(1) - G_ads_111(17) ;
@@ -135,7 +135,7 @@ for il = 1:length(G_ads_111)
         dG_rxn_111(26) = G_ads_111(15) + G_ads_111(16) - G_ads_111(14) - G_ads_111(17) ;
         
         %% 'Get Reaction constants'
-        for idx = 1:26
+	for idx = 1:26
             if (dG_act_111(idx) < 0)
                 dG_act_111(idx) = 0.001 ;
             end
@@ -192,7 +192,7 @@ for il = 1:length(G_ads_111)
         M(length(y0),length(y0)) = 0 ; % 'implicit ODE form for the free site balance'
         
         %% 'Solver options'
-        optode = odeset('NonNegative',1:17,'Mass',M,'Abstol',1E-15,'RelTol',1E-15) ;
+	optode = odeset('NonNegative',1:17,'Mass',M,'Abstol',1E-15,'RelTol',1E-15) ;
         optlsq = optimset('TolFun',1E-13,'TolX',1E-13) ;        
         
         [t,y]=ode15s(@(t,y)C2_Pt_111_ODE_function(t, y, x, T, Ptot, G_ts_111, G_ads_111, EZPEc_gas_111, lnQ_gas_111),time_read,y0,optode);
@@ -265,7 +265,7 @@ for il = 1:length(G_ts_111)
         kb_111 = zeros(length(G_ts_111), 1) ;
         
         %% 'Get the Reaction energies and Activation Energies'
-        
+	
         % '111 Activation energies of TS steps'
         dG_act_111(1) = G_ts_111(1) + G_ads_111(17) - G_ads_111(1) - G_ads_111(17) ;
         dG_act_111(2) = G_ts_111(2) + G_ads_111(17) - G_ads_111(1) - G_ads_111(17) ;
@@ -323,7 +323,7 @@ for il = 1:length(G_ts_111)
         dG_rxn_111(26) = G_ads_111(15) + G_ads_111(16) - G_ads_111(14) - G_ads_111(17) ;
         
         %% 'Get Reaction constants'
-        for idx = 1:26
+	for idx = 1:26
             if (dG_act_111(idx) < 0)
                 dG_act_111(idx) = 0.001 ;
             end
@@ -381,7 +381,7 @@ for il = 1:length(G_ts_111)
         M(length(y0),length(y0)) = 0 ; % 'implicit ODE form for the free site balance'
         
         %% 'Solver options'
-        optode = odeset('NonNegative',1:17,'Mass',M,'Abstol',1E-15,'RelTol',1E-15) ;
+	optode = odeset('NonNegative',1:17,'Mass',M,'Abstol',1E-15,'RelTol',1E-15) ;
         optlsq = optimset('TolFun',1E-13,'TolX',1E-13) ;        
         
         [t,y]=ode15s(@(t,y)C2_Pt_111_ODE_function(t, y, x, T, Ptot, G_ts_111, G_ads_111, EZPEc_gas_111, lnQ_gas_111),time_read,y0,optode);
