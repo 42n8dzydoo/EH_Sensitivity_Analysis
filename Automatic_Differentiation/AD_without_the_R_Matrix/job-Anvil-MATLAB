@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH --job-name=DRC2_GIT
+#SBATCH -N 1
+#SBATCH -n 64
+#SBATCH --output matlab.out
+#SBATCH --error matlab.err
+#SBATCH -p shared
+#SBATCH -t 12:00:00
+
+module purge
+
+module load matlab/R2023a
+
+cat << jide
+
+ $(date)
+
+ ${SLURM_JOB_NAME}
+
+ ${SLURM_JOB_ID}
+
+ $(hostname)
+
+ ${SLURM_JOB_NODELIST}
+
+jide
+
+#run the application:
+matlab -nodisplay -singleCompThread -r C2_Pt_111_main_script >& log
